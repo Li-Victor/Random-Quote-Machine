@@ -5,6 +5,7 @@ body {
 
 .panel.panel-primary {
     padding: 2vh;
+    width: 85vw;
 }
 
 #TweetButton {
