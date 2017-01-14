@@ -14,25 +14,26 @@ $(document).ready(function() {
             $('blockquote footer').html("for real, something has gone terribly wrong");
         });
 
-
-
-
-        // request done in ajax
-        // $.ajax({
-        //     url: 'http://api.forismatic.com/api/1.0/',
-        //     jsonp: 'jsonp',
-        //     dataType: 'jsonp',
-        //     data: {
-        //         method: 'getQuote',
-        //         lang: 'en',
-        //         format: 'jsonp',
-        //         key: random
-        //     }
-        // }).done(function(response) {
-        //     console.log(response);
-        // });
-
-
     });
 
+    $('#TweetButton').on('click', function() {
+        var twitterUrl = 'https://twitter.com/intent/tweet?text=';
+        twitterUrl += $('blockquote p').text() + '&hashtags=' + $('blockquote footer').text();
+        window.open(twitterUrl);
+    });
+
+    // request done in ajax
+    // $.ajax({
+    //     url: 'http://api.forismatic.com/api/1.0/',
+    //     jsonp: 'jsonp',
+    //     dataType: 'jsonp',
+    //     data: {
+    //         method: 'getQuote',
+    //         lang: 'en',
+    //         format: 'jsonp',
+    //         key: random
+    //     }
+    // }).done(function(response) {
+    //     console.log(response);
+    // });
 });
