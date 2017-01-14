@@ -1,11 +1,20 @@
+"use strict";
 $(document).ready(function() {
     $('#newQuoteButton').on('click', function() {
 
         var random = Math.floor(Math.random() * 999999);
         var URL = 'http://api.forismatic.com/api/1.0/?method=getQuote&key=' + random + '&format=jsonp&lang=en&jsonp=?';
-        $.getJSON(URL, function(response) {
-            $('#quoteDisplay').html('<pre>' + response.quoteText + ' - ' + response.quoteAuthor + '</pre>');
+        var jqxhr = $.getJSON(URL)
+        .done(function(response) {
+            $('blockquote p').html(response.quoteText);
+            $('blockquote footer').html(response.quoteAuthor);
+        })
+        .fail(function() {
+            $('blockquote p').html("Something has gone terribly");
+            $('blockquote footer').html("for real, something has gone terribly wrong");
         });
+
+
 
 
         // request done in ajax
