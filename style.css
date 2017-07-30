@@ -1,13 +1,27 @@
+*:focus {
+    outline: 0;
+    outline: none;
+}
+
 body {
-    background-color: #55ACEE;
+    background-color: #00B0FF;
     padding: 10vh 5vw 0 5vw;
 }
 
 .panel.panel-primary {
     padding: 2vh;
     width: 85vw;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 25px;
 }
 
 #TweetButton {
-    color: #55ACEE;
+    color: #1DA1F2;
+}
+
+button#newQuoteButton.btn, button#TweetButton.btn {
+    background-color: #EEEEEE;
+    border: 1px solid #90A4AE;
+    outline: none !important;
 }
