@@ -3,10 +3,11 @@ $(document).ready(function() {
     $('#newQuoteButton').on('click', function() {
 
         var random = Math.floor(Math.random() * 999999);
-        var URL = 'http://api.forismatic.com/api/1.0/?method=getQuote&key=' + random + '&format=jsonp&lang=en&jsonp=?';
+        var URL = 'https://api.forismatic.com/api/1.0/?method=getQuote&key=' + random + '&format=jsonp&lang=en&jsonp=?';
         var jqxhr = $.getJSON(URL)
         .done(function(response) {
             $('blockquote p').html(response.quoteText);
+            if(!response.quoteAuthor) response.quoteAuthor = 'Anonymous';
             $('blockquote footer').html(response.quoteAuthor);
         })
         .fail(function() {
